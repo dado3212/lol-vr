@@ -67,3 +67,10 @@ the console by navigating to chrome://inspect/#devices.
 requestAnimationFrame is broken for canvas events. I swapped the instances in 
 jsmpeg.min.js to instead use setInterval. See immersive-web/webxr#225 for more
 details, but if the JSMpeg version is updated, this should be repatched.
+
+## Known Issues
+* Movement is buggy. Using the position has drift, which isn't accounted for. The different scaling also makes moving around very unintuitive
+* Laggy. Turns out screen recording, passing over a websocket, deserializing and writing to a canvas while also rendering a 3D VR environment is not super fast.
+* Not really 3D. This is rendering a static image to both eyes, which doesn't give it a sense of true depth.
+* Quality. FFMPEG is slightly limited in what it can do.
+* Resolution. For some reason it's rendering it as a square when the stream is clearly 1024x768. This should be fixed.
