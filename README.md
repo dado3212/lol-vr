@@ -25,9 +25,14 @@ To run this.
 2. Open the LoL Client (confirm it's set up correctly) and set it to be windowed at 1024x748.
 3. Open the Oculus browser and navigate to https://192.168.1.5:3392/. Accept all
    the security stuff and you should be good to go.
-4. Run `ffmpeg -f gdigrab -framerate 20 -video_size 1024x768 -show_region 1 -i desktop -f mpegts -codec:v mpeg1video -s 1024x768 -b:v 600k -bf 0 https://localhost:3392/stream`
+4. Run `ffmpeg -f gdigrab -framerate 60 -video_size 1024x768 -show_region 1 -i desktop -f mpegts -codec:v mpeg1video -s 1024x768 -q 1 -bf 0 https://localhost:3392/stream`
+
+If that's too high, you can drop the bitrate with -b:v 600k or the fixed quality with -1
 
 ffmpeg -f gdigrab -framerate 60 -video_size 1024x768 -show_region 1 -i desktop -f mpegts -codec:v mpeg1video -s 2048x1024 -bf 0 https://localhost:3392/stream
+
+ffmpeg -f gdigrab -framerate 60 -video_size 1024x768 -show_region 1 -i desktop -f mpegts -codec:v mpeg1video -s 1024x768 -bf 0 -q 1 https://localhost:3392/stream
+
 
 # Thanks to
 https://stackoverflow.com/questions/6766333/capture-windows-screen-with-ffmpeg

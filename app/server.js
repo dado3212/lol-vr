@@ -1,5 +1,6 @@
 import express from 'express';
 import * as Lol from './lol';
+import * as Util from './util';
 import https from 'https';
 import fs from 'fs';
 import socket from 'socket.io';
@@ -118,19 +119,20 @@ io.sockets.on('connection', socket => {
   socket.join(mainRoom);
 
   socket.on('pose-update', (pose) => {
-    // console.log(pose);
+    console.log();
+    let orientation = Util.toEuler(pose.orientation);
     // Pass this through to the LoL client
     Lol.setCamera(
       {
-        cameraPosition: {
-          x: (0.5 + pose.position.x) * 14300,
-          y: (1000 + 4000 * pose.position.y),
-          z:  (0.5 - pose.position.z) * 14300
-        },
+        // cameraPosition: {
+        //   x: (0.5 + pose.position.x) * 14300,
+        //   y: (1000 + 4000 * pose.position.y),
+        //   z:  (0.5 - pose.position.z) * 14300
+        // },
         cameraRotation: {
-            x: -pose.orientation.y * 100, // intentionally swapped for the league client
-            y: -pose.orientation.x * 100, // intentionally swapped for the league client
-            z: -pose.orientation.z * 100
+            x: orientation[0],
+            y: orientation[1],
+            z: orientation[2]
         }
       },
     );

@@ -16,6 +16,6 @@ axios.post('https://127.0.0.1:2999/replay/render', cameraPositionRotation,
     // newPosition.cameraRotation.y = 10;
     // setCamera(newPosition);
 }).catch((err) => {
-    console.error(err);
+    console.error(err.data);
 });
 };
