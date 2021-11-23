@@ -1,4 +1,4 @@
-# League of Legends: VR Replay Viewer
+# <img src="/favicons/android-chrome-192x192.png?raw=true" width="30" alt="Logo"/> League of Legends: VR Replay Viewer
 
 This is a way of trying to hook into the LoL replay API in a VR headset. Built
 this before I found out about https://github.com/nickolaj-jepsen/LoLVRSpectate
