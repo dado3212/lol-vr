@@ -1,3 +1,4 @@
+// Adapted from https://github.com/Willjfield/QuaterniontoEuler/blob/master/quatEuler.js
 export const toEuler = (q) => {
     const x = q.x;
     const y = q.y;

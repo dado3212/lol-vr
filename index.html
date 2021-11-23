@@ -56,12 +56,11 @@
       let gl = null;
       let renderer = null;
       let scene = new Scene();
-      scene.enableStats(false);
 
       let canvasVideo = document.createElement('canvas');
       canvasVideo.setAttribute('width', '1024px');
       canvasVideo.setAttribute('height', '768px');
-      var url = "wss://192.168.1.5:3394"; // 192.168.1.5 localhost
+      var url = "wss://192.168.1.5:3394";
       var player = new JSMpeg.Player(url, {canvas: canvasVideo});
 
       let canvasNode = new CanvasNode({
@@ -129,7 +128,6 @@
         });
 
         initGL();
-        scene.inputRenderer.useProfileControllerMeshes(session);
 
         let glLayer = new XRWebGLLayer(session, gl);
         session.updateRenderState({ baseLayer: glLayer });
@@ -171,8 +169,6 @@
         scene.startFrame();
 
         session.requestAnimationFrame(onXRFrame);
-
-        scene.updateInputSources(frame, refSpace);
 
         scene.drawXRFrame(frame, pose);
 
