@@ -40,6 +40,7 @@ https://github.com/immersive-web/webxr-samples
 https://stackoverflow.com/questions/56504378/low-latency-50ms-video-streaming-with-node-js-and-html5
 https://immersive-web.github.io/webxr-samples/
 https://github.com/phoboslab/jsmpegsdf
+https://github.com/Willjfield/QuaterniontoEuler/blob/master/quatEuler.js
 
 https://192.168.1.5:3392/
 

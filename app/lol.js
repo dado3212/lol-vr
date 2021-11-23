@@ -16,6 +16,12 @@ axios.post('https://127.0.0.1:2999/replay/render', cameraPositionRotation,
     // newPosition.cameraRotation.y = 10;
     // setCamera(newPosition);
 }).catch((err) => {
-    console.error(err.data);
+  if (err.errno == 'ECONNREFUSED') {
+    // ignore this for now
+    console.log('Failed to connect to port :2999');
+  } else {
+    console.error(err);
+    throw 'Parameter is not a number!';
+  }
 });
 };

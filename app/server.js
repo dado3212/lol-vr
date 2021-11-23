@@ -119,16 +119,15 @@ io.sockets.on('connection', socket => {
   socket.join(mainRoom);
 
   socket.on('pose-update', (pose) => {
-    console.log();
     let orientation = Util.toEuler(pose.orientation);
     // Pass this through to the LoL client
     Lol.setCamera(
       {
-        // cameraPosition: {
-        //   x: (0.5 + pose.position.x) * 14300,
-        //   y: (1000 + 4000 * pose.position.y),
-        //   z:  (0.5 - pose.position.z) * 14300
-        // },
+        cameraPosition: {
+          x: (0.5 + pose.position.x) * 14300,
+          y: (1000 + 4000 * pose.position.y),
+          z:  (0.5 - pose.position.z) * 14300
+        },
         cameraRotation: {
             x: orientation[0],
             y: orientation[1],
